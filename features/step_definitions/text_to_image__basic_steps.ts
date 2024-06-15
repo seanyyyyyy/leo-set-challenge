@@ -38,7 +38,7 @@ When('the Image Generation page', async function () {
 });
 
 When('the {string} preset', async function (preset) {
-    await page.getByRole('button', {name: 'Preset Selected Preset'}).click()
+    await page.getByText('Preset', {exact:true}).click()
     await page.locator('button', {hasText: preset}).click()
     await page.getByRole('button', {name: 'Close panel'}).click()
 });
@@ -75,7 +75,7 @@ Then('the generated image displays successfully', async function () {
 
 AfterAll(async function () {
     //TODO screenshot timing out
-    // 'Waiting for fonts' issue https://github.com/microsoft/playwright/issues/28995
+    // Open issue https://github.com/microsoft/playwright/issues/28995
     //await page.screenshot({ path: 'screenshot.png' });
 
     await browser.close()
