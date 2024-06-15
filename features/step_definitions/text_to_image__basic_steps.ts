@@ -38,8 +38,8 @@ When('the Image Generation page', async function () {
 });
 
 When('the {string} preset', async function (preset) {
-    await page.locator('.chakra-button.css-f2ftxr').click();
-    await page.getByRole('button', {name:preset}).click()
+    await page.getByRole('button', {name: 'Preset Selected Preset'}).click()
+    await page.locator('button', {hasText: preset}).click()
     await page.getByRole('button', {name: 'Close panel'}).click()
 });
 
@@ -65,7 +65,7 @@ When('Number of images is 4', async function () {
 });
 
 When('the generate button is clicked', async function () {
-    await page.locator('.chakra-button.css-q7xawa').click();
+    await page.locator('button', {hasText: 'Generate'}).click()
 });
 
 Then('the generated image displays successfully', async function () {
@@ -74,5 +74,9 @@ Then('the generated image displays successfully', async function () {
 });
 
 AfterAll(async function () {
+    //TODO screenshot timing out
+    // 'Waiting for fonts' issue https://github.com/microsoft/playwright/issues/28995
+    //await page.screenshot({ path: 'screenshot.png' });
+
     await browser.close()
 });

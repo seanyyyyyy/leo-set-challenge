@@ -6,7 +6,7 @@ Feature: Text-to-image
     And the Image Generation page
     And the "Leonardo Lightning" preset
     And Fast mode turned on
-    And a prompt of "test 18"
+    And a prompt of "a successful end to end test"
     And image dimensions of "Small"
     And aspect ratio is 1:1
     And Number of images is 4
