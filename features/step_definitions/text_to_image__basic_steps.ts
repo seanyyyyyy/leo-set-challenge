@@ -8,8 +8,8 @@ let prompt: string;
 setDefaultTimeout(60 * 1000);
 
 Given('a logged in user', async function () {
-    const username: string = 'szliaw@gmail.com'
-    const password: string = 'Password123!'
+    const username: string = process.env.USERNAME!
+    const password: string = process.env.PASSWORD!
 
     browser = await chromium.launch({headless: false})
     page = await browser.newPage()
